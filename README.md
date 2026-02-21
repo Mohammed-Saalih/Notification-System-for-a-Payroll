@@ -95,10 +95,10 @@ The Income Tax Validation process operates as a scheduled compliance-check job w
 "NOTE : INSTALL NECESSARY DEPENDENCIES" 
 
 # Team Memebers
-## * A Mohammed Saalih
-## * R Deepak
-## * M Nethaji
-## * S Santhakumar
+* A Mohammed Saalih
+* R Deepak
+* M Nethaji
+* S Santhakumar
 
 
 
