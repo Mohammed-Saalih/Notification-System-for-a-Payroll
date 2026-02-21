@@ -16,15 +16,11 @@ This is not a full payroll engine, but a structured, event-driven notification l
 ## Role-based access control (RBAC)
 
 * Event-driven notification routing
+* Background job simulation
+* Failure handling with retry & escalation
+* Circuit breaker simulation
+* GL account monitoring
+* Threshold alerts
+* Income tax validation alerts
+<img width="1583" height="1073" alt="image" src="https://github.com/user-attachments/assets/47c28c33-05ce-4c58-a22f-91ae637cd505" />
 
-Background job simulation
-
-Failure handling with retry & escalation
-
-Circuit breaker simulation
-
-GL account monitoring
-
-Threshold alerts
-
-Income tax validation alerts
