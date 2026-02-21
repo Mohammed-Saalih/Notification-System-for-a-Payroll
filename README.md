@@ -1,11 +1,5 @@
-
-
-## 1. Sprint Zero – Architectural Planning Foundation
-Anna Pay is designed as a standalone payroll notification system, not a full payroll engine. The planning problem was clear: payroll-related jobs can fail silently, retries can become noisy, and different teams often receive unstructured or delayed alerts. The Sprint Zero objective was to build a deterministic, local system that captures payroll-adjacent events and routes them to the right stakeholders with clear state transitions.
-
-The primary stakeholders are Employee, Admin, Finance, and System operations (background scheduler and resilience controls). Key risks identified during planning were alert flooding from unstable jobs, uncontrolled retry loops, and state inconsistency across cross-role workflows. Non-functional requirements were defined as traceability of events, reliability under simulated failures, and strict role isolation in notification visibility.
-
-The architecture decision was to use a layered backend with a notification engine abstraction. This keeps HTTP transport, business logic, event creation, and persistence concerns separated, while allowing fault tolerance simulation to evolve without rewriting request handlers.
+# Sprint Zero – Architectural Planning Foundation
+During Sprint Zero, an IT professional was consulted to understand what is expected from a robust payroll notification system in a real-world enterprise environment. The discussion focused not on UI features, but on operational reliability, system integrity, compliance visibility, and controlled alerting mechanisms.
 
 # Anna Pay – Payroll Notification & Monitoring System
 
@@ -75,20 +69,40 @@ The Employee Salary Revision workflow is an event-driven, role-based process. Wh
 
 
 
-##Background Job Failure Simulation
+## Background Job Failure Simulation
 The system includes a scheduler-driven background job engine that simulates Attendance Integration, Payroll Execution, Tax Validation, GL Monitoring, and Bank Interface processes. Each job executes at fixed intervals and may generate randomized failure states to emulate operational instability. On failure, retry logic is triggered and failure counters increment. Escalation levels increase progressively based on retry thresholds. If failures exceed configured limits, a circuit breaker mechanism transitions the job into an open state to prevent cascading faults. Alert throttling controls duplicate notification bursts within defined time windows. This models resilience patterns including retry policy, escalation hierarchy, circuit breaker pattern, and fault tolerance simulation.
 <img width="2478" height="1070" alt="image" src="https://github.com/user-attachments/assets/b5755751-3ff6-47d2-92c1-b372915a9654" />
 
 
-##GL Monitoring & Finance Workflow
+## GL Monitoring & Finance Workflow
 The Finance module implements real-time General Ledger (GL) monitoring with threshold-based alerting. GL accounts such as Operations Payroll GL, Tax Withholding GL, and Cash Reserve GL maintain balance and threshold metadata. The system continuously evaluates threshold conditions and generates notifications when balances approach risk boundaries. Finance users can initiate inter-GL transfers, which are recorded in a structured ledger with transaction reference identifiers for traceability. Transfer completion events generate confirmation notifications. This workflow demonstrates financial ledger modeling, threshold-triggered event generation, and transaction auditing within a simulated financial control environment.
+
+The Income Tax Validation process operates as a scheduled compliance-check job within the background engine. Validation failures trigger escalation logic, retry mechanisms, and structured notification events targeted to Finance stakeholders. The system tracks circuit state transitions to prevent repetitive instability and ensures progressive severity classification. This module simulates compliance monitoring, exception handling, and regulatory alerting within a payroll-adjacent operational framework.
+
+## GL Transfer & Ledger History
 <img width="2519" height="1061" alt="image" src="https://github.com/user-attachments/assets/f0ec3c86-cadf-494a-abeb-c14bd570668e" />
 <img width="2559" height="736" alt="image" src="https://github.com/user-attachments/assets/5cc47506-c474-4e8f-b48a-659f713ebe3d" />
 
+## Finance Notifications (Threshold + Tax Alerts)
+<img width="2544" height="1368" alt="image" src="https://github.com/user-attachments/assets/d593d9e4-325c-4fbb-b05c-cc81e837fd14" />
+
+# TechStack used
+* Node.js 
+* Express.js 
+* REST Architecture
+* HTML5
+* CSS3
+"NOTE : INSTALL NECESSARY DEPENDENCIES" 
+
+# Team Memebers
+A Mohammed Saalih
+R Deepak
+M Nethaji
+S Santhakumar
 
 
-##Income Tax Validation Alerts
-The Income Tax Validation process operates as a scheduled compliance-check job within the background engine. Validation failures trigger escalation logic, retry mechanisms, and structured notification events targeted to Finance stakeholders. The system tracks circuit state transitions to prevent repetitive instability and ensures progressive severity classification. This module simulates compliance monitoring, exception handling, and regulatory alerting within a payroll-adjacent operational framework.
+
+
 
 
 
