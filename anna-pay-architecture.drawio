@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net" modified="2026-02-21T00:00:00.000Z" agent="5.0 (Windows)" version="24.7.17" type="device">
+  <diagram id="architecture-anna-pay-clean" name="Architecture">
+    <mxGraphModel dx="1900" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="Anna Pay - Architecture Diagram (Non-UML)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uiLayer" value="UI Layer" style="swimlane;startSize=30;horizontal=0;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="2280" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="employeeUI" value="Employee UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="uiLayer">
+          <mxGeometry x="90" y="60" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="adminUI" value="Admin UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="uiLayer">
+          <mxGeometry x="470" y="60" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="financeUI" value="Finance UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="uiLayer">
+          <mxGeometry x="850" y="60" width="280" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="backendLayer" value="Backend Layer" style="swimlane;startSize=30;horizontal=0;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="1440" height="420" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="expressServer" value="Express Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="backendLayer">
+          <mxGeometry x="60" y="70" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="authMW" value="Authentication Middleware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="backendLayer">
+          <mxGeometry x="360" y="70" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="controllers" value="Controllers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="backendLayer">
+          <mxGeometry x="660" y="70" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="services" value="Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="backendLayer">
+          <mxGeometry x="930" y="70" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="notifEngine" value="Notification Engine&#xa;- Event Generation&#xa;- Role-based Filtering&#xa;- Acknowledgement Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="backendLayer">
+          <mxGeometry x="360" y="210" width="790" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="jobLayer" value="Job Layer (Scheduler Simulation)" style="swimlane;startSize=30;horizontal=0;rounded=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="280" width="800" height="420" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="jobScheduler" value="Job Scheduler (setInterval)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="40" y="50" width="720" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="attendanceJob" value="Attendance Job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="40" y="150" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="payrollJob" value="Payroll Job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="230" y="150" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="taxJob" value="Tax Validation Job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="420" y="150" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="glJob" value="GL Monitoring Job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="610" y="150" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="bankJob" value="Bank Interface Job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="jobLayer">
+          <mxGeometry x="325" y="240" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="resilience" value="Fault Tolerance Simulation&#xa;- Retry Policy&#xa;- Escalation Hierarchy&#xa;- Circuit Breaker Simulation&#xa;- Alert Throttling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="jobLayer">
+          <mxGeometry x="40" y="320" width="720" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="dataLayer" value="Data Layer (In-Memory Data Store)" style="swimlane;startSize=30;horizontal=0;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="2280" height="280" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="store" value="In-Memory Data Store&#xa;users, payroll, notifications, requests, jobStates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="dataLayer">
+          <mxGeometry x="70" y="70" width="500" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="glAccounts" value="GL Accounts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="dataLayer">
+          <mxGeometry x="650" y="70" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ledgerSystem" value="Ledger System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="dataLayer">
+          <mxGeometry x="990" y="70" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="notifState" value="Notification State&#xa;(metadata + acknowledged flag)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="dataLayer">
+          <mxGeometry x="1330" y="70" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;jettySize=auto;" edge="1" parent="1" source="employeeUI" target="expressServer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;jettySize=auto;" edge="1" parent="1" source="adminUI" target="expressServer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;jettySize=auto;" edge="1" parent="1" source="financeUI" target="expressServer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="auth check" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="expressServer" target="authMW">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="route" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="authMW" target="controllers">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="orchestration" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="controllers" target="services">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="event" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="services" target="notifEngine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" value="store/update" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="services" target="store">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="write notifications" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="notifEngine" target="notifState">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="finance data" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="services" target="glAccounts">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="ledger ops" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="services" target="ledgerSystem">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" value="triggers" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="attendanceJob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e13" value="triggers" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="payrollJob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e14" value="triggers" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="taxJob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e15" value="triggers" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="glJob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e16" value="triggers" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="bankJob">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e17" value="failure/retry/escalation" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="attendanceJob" target="resilience">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e18" value="failure/retry/escalation" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="payrollJob" target="resilience">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e19" value="failure/retry/escalation" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="taxJob" target="resilience">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e20" value="failure/retry/escalation" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="glJob" target="resilience">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e21" value="failure/retry/escalation" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="bankJob" target="resilience">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e22" value="job events" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="resilience" target="notifEngine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" value="job state" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;" edge="1" parent="1" source="jobScheduler" target="store">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

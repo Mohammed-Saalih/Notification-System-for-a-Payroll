@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna Pay - Finance</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Finance</h2>
+        <a class="active" href="/finance.html">Dashboard</a>
+        <a href="/notifications.html">Notifications</a>
+      </aside>
+      <main class="main">
+        <header class="header">
+          <h1>Welcome, <span id="userName"></span></h1>
+          <div class="actions">
+            <a class="notif-btn" href="/notifications.html">🔔 <span id="notifCount">0</span></a>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <section class="grid" id="glCards"></section>
+
+        <section class="card" style="margin-top: 16px">
+          <h3>Transfer Between GL Accounts</h3>
+          <form id="transferForm" class="stack">
+            <select id="fromAccount"></select>
+            <select id="toAccount"></select>
+            <input id="amount" type="number" placeholder="Amount" required />
+            <button type="submit">Initiate Transfer</button>
+          </form>
+        </section>
+
+        <section class="card" style="margin-top: 16px">
+          <h3>Ledger History</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Reference</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerTable"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/finance.js"></script>
+  </body>
+  </html>

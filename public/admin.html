@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna Pay - Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Admin</h2>
+        <a class="active" href="/admin.html">Dashboard</a>
+        <a href="/notifications.html">Notifications</a>
+      </aside>
+      <main class="main">
+        <header class="header">
+          <h1>Welcome, <span id="userName"></span></h1>
+          <div class="actions">
+            <a class="notif-btn" href="/notifications.html">🔔 <span id="notifCount">0</span></a>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <div class="grid">
+          <section class="card">
+            <h3>Employee List</h3>
+            <ul id="employeeList" class="stack"></ul>
+          </section>
+
+          <section class="card">
+            <h3>Salary Modification</h3>
+            <form id="salaryForm" class="stack">
+              <select id="employeeSelect"></select>
+              <input id="percentage" type="number" placeholder="Adjustment %" required />
+              <button type="submit">Apply Change</button>
+            </form>
+          </section>
+        </div>
+
+        <section class="card" style="margin-top: 16px">
+          <h3>Employee Requests</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Title</th>
+                <th>Increment</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="requestTable"></tbody>
+          </table>
+        </section>
+
+        <section class="card" style="margin-top: 16px">
+          <h3>System Alerts</h3>
+          <ul id="alertsList" class="stack"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+  </html>

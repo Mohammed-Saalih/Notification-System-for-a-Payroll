@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna Pay - Notifications</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Notifications</h2>
+        <a id="backLink" href="/login.html">Back to Dashboard</a>
+        <a class="active" href="/notifications.html">All Notifications</a>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <h1>Notifications - <span id="userName"></span></h1>
+          <div class="actions">
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <section class="card">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Message</th>
+                <th>Source</th>
+                <th>Severity</th>
+                <th>Escalation</th>
+                <th>Timestamp</th>
+                <th>Ack</th>
+              </tr>
+            </thead>
+            <tbody id="notificationTable"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/notifications.js"></script>
+  </body>
+  </html>

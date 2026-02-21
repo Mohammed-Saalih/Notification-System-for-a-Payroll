@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna Pay - Employee</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Employee</h2>
+        <a class="active" href="/employee.html">Dashboard</a>
+        <a href="/notifications.html">Notifications</a>
+      </aside>
+      <main class="main">
+        <header class="header">
+          <h1>Welcome, <span id="userName"></span></h1>
+          <div class="actions">
+            <a class="notif-btn" href="/notifications.html">🔔 <span id="notifCount">0</span></a>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </header>
+
+        <div class="grid">
+          <section class="card">
+            <h3>Salary Breakdown</h3>
+            <div id="salaryDetails" class="stack"></div>
+          </section>
+
+          <section class="card">
+            <h3>Submit Salary Revision Request</h3>
+            <form id="revisionForm" class="stack">
+              <input id="reqTitle" placeholder="Request title" required />
+              <textarea id="reqMessage" placeholder="Request details" required></textarea>
+              <input id="reqPct" type="number" placeholder="Proposed increment %" required />
+              <button type="submit">Submit Request</button>
+            </form>
+          </section>
+        </div>
+
+        <section class="card" style="margin-top: 16px">
+          <h3>Payroll History</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cycle</th>
+                <th>Basic</th>
+                <th>HRA</th>
+                <th>DA</th>
+                <th>Bonus</th>
+                <th>IT</th>
+                <th>Net</th>
+              </tr>
+            </thead>
+            <tbody id="payrollTable"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/employee.js"></script>
+  </body>
+  </html>
