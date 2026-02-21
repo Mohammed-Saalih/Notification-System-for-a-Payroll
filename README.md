@@ -22,5 +22,5 @@ This is not a full payroll engine, but a structured, event-driven notification l
 * GL account monitoring
 * Threshold alerts
 * Income tax validation alerts
-<img width="1583" height="1073" alt="image" src="https://github.com/user-attachments/assets/47c28c33-05ce-4c58-a22f-91ae637cd505" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/47c28c33-05ce-4c58-a22f-91ae637cd505" />
 
